@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan Penalaran Matematika UTBK — 15 Soal Berstimulus</title>
+<style>
+:root{--navy:#081029;--navy2:#0f1b45;--card:#14235a;--line:#26397f;--blue:#2f6bff;--cyan:#4cc9ff;--orange:#ff8a1f;--ok:#22c55e;--bad:#ef4444;--txt:#eaf0ff;--mut:#9db0e6;--r:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--txt);line-height:1.55;min-height:100vh;
+background:radial-gradient(900px 500px at 85% -10%,#1b3f9e55,transparent),radial-gradient(700px 400px at -10% 110%,#ff8a1f22,transparent),
+linear-gradient(rgba(76,201,255,.05) 1px,transparent 1px) 0 0/36px 36px,linear-gradient(90deg,rgba(76,201,255,.05) 1px,transparent 1px) 0 0/36px 36px,var(--navy)}
+.page{display:none;max-width:1100px;margin:0 auto;padding:18px}
+.page.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1,h2,h3{margin:0 0 .4em;line-height:1.2}
+.card{background:linear-gradient(160deg,var(--card),var(--navy2));border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:0 10px 30px #0006}
+.btn{font:inherit;font-weight:700;border:0;border-radius:12px;padding:12px 20px;cursor:pointer;color:#fff;background:var(--blue);transition:.15s;min-height:46px}
+.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.12)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.or{background:var(--orange);color:#1b0f00}
+.btn.gh{background:transparent;border:1px solid var(--line);color:var(--txt)}
+.btn.sm{padding:8px 12px;min-height:38px;font-size:.9rem}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--cyan);background:#4cc9ff1c;border:1px solid #4cc9ff44;border-radius:99px;padding:3px 12px}
+/* HOME */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.7rem)}
+.hero h1 span{color:var(--orange)}
+.sub{color:var(--mut);margin:0 0 14px}
+.topics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.topic{display:flex;gap:10px;align-items:center;background:#ffffff0a;border:1px solid var(--line);border-radius:12px;padding:9px 11px;font-size:.88rem}
+.topic b{display:block;font-size:.9rem}.topic small{color:var(--mut)}
+.ic{font-size:1.4rem}
+.illu{display:flex;justify-content:center}.illu svg{width:100%;max-width:360px;animation:flt 5s ease-in-out infinite}
+@keyframes flt{50%{transform:translateY(-8px)}}
+label.l{display:block;font-weight:700;margin:14px 0 6px}
+input[type=text]{width:100%;font:inherit;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#071033;color:var(--txt)}
+input[type=text]:focus{outline:2px solid var(--cyan)}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mode{cursor:pointer;border:2px solid var(--line);border-radius:12px;padding:12px;background:#ffffff08;transition:.15s}
+.mode.on{border-color:var(--orange);background:#ff8a1f1a}
+.mode b{display:block}.mode small{color:var(--mut)}
+.chk{display:flex;gap:8px;align-items:center;margin:12px 0;color:var(--mut)}
+.shake{animation:shk .35s}
+@keyframes shk{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.resume{margin-top:14px;padding:12px;border-radius:12px;border:1px dashed var(--orange);display:none;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+/* RULES */
+.rules{list-style:none;padding:0;margin:14px 0;display:grid;gap:9px}
+.rules li{display:flex;gap:12px;background:#ffffff08;border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.rules li i{font-style:normal;font-size:1.3rem}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+/* QUIZ */
+.top{position:sticky;top:0;z-index:20;margin:-18px -18px 14px;padding:10px 18px;background:#081029ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topin{max-width:1100px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.who{font-size:.9rem;color:var(--mut)}.who b{color:var(--txt)}
+.timer{font:700 1.2rem ui-monospace,Consolas,monospace;background:#ffffff10;border:1px solid var(--line);border-radius:10px;padding:5px 12px}
+.timer.warn{color:var(--orange);border-color:var(--orange);animation:pl 1s infinite}
+@keyframes pl{50%{opacity:.55}}
+.pbar{height:8px;background:#ffffff14;border-radius:9px;overflow:hidden;margin-top:8px}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .4s}
+.qwrap{display:grid;grid-template-columns:1fr 290px;gap:16px;align-items:start}
+.qhead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.qtext{font-size:1.1rem;margin:0 0 16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:var(--txt);width:100%;background:#ffffff0a;border:2px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;transition:.15s}
+.opt:hover:not(:disabled){border-color:var(--cyan);background:#4cc9ff14}
+.opt .lt{flex:none;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-weight:800;background:#ffffff14}
+.opt.sel{border-color:var(--orange);background:#ff8a1f1f;animation:pop .25s}
+.opt.sel .lt{background:var(--orange);color:#1b0f00}
+.opt.right{border-color:var(--ok);background:#22c55e22}.opt.right .lt{background:var(--ok);color:#052}
+.opt.wrong{border-color:var(--bad);background:#ef444422}.opt.wrong .lt{background:var(--bad)}
+.opt:disabled{cursor:default}
+@keyframes pop{50%{transform:scale(1.015)}}
+.expl{margin-top:14px;padding:13px 15px;border-radius:12px;border-left:5px solid var(--cyan);background:#4cc9ff12;animation:fade .3s}
+.expl.ok{border-color:var(--ok)}.expl.no{border-color:var(--bad)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.acts .sp{flex:1}
+.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.nb{font:inherit;font-weight:700;font-size:.85rem;border:2px solid var(--line);background:#ffffff08;color:var(--mut);border-radius:9px;min-height:38px;cursor:pointer;position:relative}
+.nb.a{background:#2f6bff55;color:#fff;border-color:var(--blue)}
+.nb.c{background:#22c55e44;border-color:var(--ok);color:#fff}
+.nb.w{background:#ef444444;border-color:var(--bad);color:#fff}
+.nb.f::after{content:"⚑";position:absolute;top:-6px;right:-3px;font-size:.8rem;color:var(--orange)}
+.nb.h::before{content:"★";position:absolute;top:-6px;left:-1px;font-size:.8rem;color:#ffd84c}
+.nb.cur{outline:3px solid var(--orange);outline-offset:1px}
+.leg{display:flex;flex-wrap:wrap;gap:8px 12px;font-size:.78rem;color:var(--mut);margin:12px 0 0}
+.leg span:before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.pill{font-size:.8rem;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}
+/* RESULT */
+.rgrid{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:center}
+.donut{width:210px;height:210px;border-radius:50%;margin:auto;display:grid;place-items:center;position:relative}
+.donut div{width:150px;height:150px;border-radius:50%;background:var(--navy2);display:grid;place-items:center;text-align:center}
+.donut b{font-size:2.6rem;line-height:1}.donut small{color:var(--mut)}
+.pred{display:inline-block;font-size:1.3rem;font-weight:800;padding:6px 18px;border-radius:99px;margin:6px 0 12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.stat{background:#ffffff0a;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.4rem}.stat small{color:var(--mut)}
+.tb{margin:10px 0}.tb .lab{display:flex;justify-content:space-between;font-size:.9rem}
+.tb .bar{height:12px;border-radius:9px;background:#ffffff14;overflow:hidden;display:flex}
+.tb .bar i{display:block;height:100%}
+/* REVIEW */
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.tools input{flex:1;min-width:200px}
+.chip{font:inherit;cursor:pointer;color:var(--txt);background:transparent;border:1px solid var(--line);border-radius:99px;padding:7px 14px}
+.chip.on{background:var(--blue);border-color:var(--blue)}
+.rv{margin:12px 0}
+.rv h3{margin:22px 0 8px;color:var(--cyan)}
+.rv .opt{cursor:default;padding:9px 12px}
+.rv .you{font-size:.75rem;font-weight:700;margin-left:auto;flex:none;padding:2px 8px;border-radius:99px;background:#ffffff22}
+.badge{font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:99px}
+.b-ok{background:#22c55e33;color:#7dffaa}.b-no{background:#ef444433;color:#ff9a9a}.b-bl{background:#ffffff22;color:var(--mut)}
+/* MODAL */
+.ov{position:fixed;inset:0;background:#000a;display:none;place-items:center;z-index:50;padding:16px}.ov.on{display:grid}
+.mod{max-width:420px;width:100%}
+@media(max-width:820px){
+ .hero,.rgrid,.qwrap{grid-template-columns:1fr}
+ .illu{order:-1}.illu svg{max-width:220px}
+ .nav{grid-template-columns:repeat(10,1fr)}.nb{min-height:34px;font-size:.75rem}
+ .acts{position:sticky;bottom:0;background:#0a1330f2;margin:14px -20px -20px;padding:10px 20px;border-radius:0 0 16px 16px;z-index:5}
+}
+@media(max-width:480px){.page{padding:12px}.top{margin:-12px -12px 12px;padding:8px 12px}.card{padding:15px}.modes,.topics{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr}.btn{padding:11px 14px}}
+@media print{
+ body{background:#fff;color:#000}.page{display:none!important}#p-result{display:block!important}
+ #p-result .no-print{display:none!important}.card{background:#fff;border:1px solid #999;box-shadow:none;color:#000}
+ .stat,.donut div{background:#fff;color:#000}.donut{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .tb .bar{border:1px solid #999}.tb .bar i{-webkit-print-color-adjust:exact;print-color-adjust:exact}small,.sub{color:#444!important}
+}
+
+/* --- tambahan untuk soal uraian & benar/salah --- */
+textarea{width:100%;font:inherit;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#071033;color:var(--txt);resize:vertical}
+textarea:focus{outline:2px solid var(--cyan)}
+.ans-row{display:flex;gap:10px;align-items:center}.ans-row input{flex:1}
+.unit{font-weight:700;color:var(--cyan);min-width:48px}
+input:disabled,textarea:disabled{opacity:.7}
+.opts.bs{grid-template-columns:1fr 1fr}
+
+/* --- kotak stimulus --- */
+.stim{background:#0b1740;border:1px solid var(--line);border-left:4px solid var(--cyan);border-radius:12px;padding:12px 14px;margin:10px 0 14px}
+.stim b{color:var(--cyan)}
+.stim p{margin:6px 0 0;color:#cfd9ff;line-height:1.6}
+</style>
+</head>
+<body>
+
+<!-- ============ HOME ============ -->
+<section class="page on" id="p-home">
+ <div class="card hero">
+  <div>
+   <span class="tag">🎯 UTBK • Penalaran Matematika</span>
+   <h1 style="margin-top:10px">Latihan <span>Penalaran Matematika</span> UTBK</h1>
+   <p class="sub">15 soal berstimulus: setiap cerita diikuti tiga pertanyaan bertingkat tentang geometri, perbandingan, statistik, peluang, dan gerak.</p>
+   <div class="topics" id="topicList"></div>
+   <label class="l" for="nama">Nama peserta</label>
+   <input type="text" id="nama" maxlength="40" placeholder="Tulis namamu di sini" autocomplete="off">
+   <label class="l">Mode pengerjaan</label>
+   <div class="modes">
+    <div class="mode on" data-m="latihan" tabindex="0" role="button"><b>📘 Latihan</b><small>Pembahasan tampil setelah tiap soal dijawab.</small></div>
+    <div class="mode" data-m="simulasi" tabindex="0" role="button"><b>⏱️ Simulasi</b><small id="simSmall"></small></div>
+   </div>
+   <div class="row"><button class="btn or" id="btnStart">🚀 Mulai Mengerjakan</button><button class="btn gh" id="btnSnd">🔊 Suara: Hidup</button></div>
+   <div class="resume" id="resume"><span>Ada sesi yang belum selesai.</span><button class="btn sm" id="btnResume">Lanjutkan Sesi</button></div>
+  </div>
+  <div class="illu">
+   <svg viewBox="0 0 360 300" fill="none" aria-hidden="true">
+    <polygon points="180,28 80,112 280,112" fill="#ff8a1f" stroke="#ffb866" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="95" y="112" width="170" height="40" fill="#14235a" stroke="#26397f" stroke-width="2"/>
+    <circle cx="110" cy="214" r="46" stroke="#4cc9ff" stroke-width="5"/><circle cx="110" cy="214" r="6" fill="#4cc9ff"/>
+    <circle cx="250" cy="214" r="46" stroke="#2f6bff" stroke-width="5"/><circle cx="250" cy="214" r="6" fill="#2f6bff"/>
+    <path d="M110 214 L180 214 L250 214 M180 214 L150 170 L215 170 L250 214" stroke="#9db0e6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="70" y="268" width="220" height="28" rx="10" fill="#14235a" stroke="#26397f"/>
+    <text x="180" y="287" text-anchor="middle" font-family="Consolas,monospace" font-size="14" fill="#22c55e">√(6² + 4,5²) = 7,5</text>
+    <circle cx="332" cy="36" r="10" fill="#ff8a1f"/><circle cx="26" cy="120" r="6" fill="#4cc9ff"/>
+   </svg>
+  </div>
+ </div>
+</section>
+
+<!-- ============ RULES ============ -->
+<section class="page" id="p-rules">
+ <div class="card">
+  <span class="tag">Petunjuk</span>
+  <h2 style="margin-top:10px">Aturan Pengerjaan</h2>
+  <p class="sub" id="rulesWho"></p>
+  <ul class="rules">
+   <li><i>📝</i><span>Ada <b>15 soal pilihan ganda</b> (A–E) dalam <b>5 stimulus</b>. Setiap stimulus punya 3 pertanyaan bertingkat, dan hasil pertanyaan awal sering dipakai pada pertanyaan berikutnya.</span></li>
+   <li><i>⭐</i><span>Setiap jawaban benar bernilai sama. Skor = jumlah benar ÷ 15 × 100. Jawaban salah atau kosong bernilai 0 (tidak ada pengurangan).</span></li>
+   <li><i>↕️</i><span>Urutan soal <b>tidak diacak</b> karena soal dalam satu stimulus saling berkaitan. Teks stimulus selalu tampil di atas soal.</span></li>
+   <li><i>🚩</i><span>Tandai soal untuk ditinjau kembali, atau tandai sebagai soal sulit.</span></li>
+   <li><i>↔️</i><span>Pindah soal lewat tombol atau nomor soal. Papan ketik: ← → pindah soal, A–E / 1–5 memilih jawaban, F menandai.</span></li>
+   <li id="ruleMode"></li>
+  </ul>
+  <div class="row"><button class="btn gh" id="btnRBack">← Kembali</button><button class="btn or" id="btnGo">Mulai Mengerjakan →</button></div>
+ </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="page" id="p-quiz">
+ <div class="top"><div class="topin">
+  <div class="who">Peserta: <b id="qWho"></b> • <span id="qMode"></span></div>
+  <div class="row" style="align-items:center"><span class="pill" id="qCount"></span><button class="btn gh sm" id="btnSnd2">🔊</button><span class="timer" id="timer">00:00</span></div>
+ </div><div class="pbar" style="max-width:1100px;margin:8px auto 0"><i id="pfill"></i></div></div>
+ <div class="qwrap">
+  <div class="card" id="qcard"></div>
+  <div class="card">
+   <h3 style="font-size:1rem">Navigasi Soal</h3>
+   <div class="nav" id="nav"></div>
+   <div class="leg"><span style="--c:#2f6bff">Dijawab</span><span style="--c:#26397f">Belum</span><span style="--c:#ff8a1f">Ditandai ⚑</span><span style="--c:#ffd84c">Sulit ★</span></div>
+   <button class="btn or" style="width:100%;margin-top:14px" id="btnFinish">✅ Selesai dan Lihat Hasil</button>
+  </div>
+ </div>
+</section>
+
+<!-- ============ RESULT ============ -->
+<section class="page" id="p-result">
+ <div class="card">
+  <span class="tag">Hasil Pengerjaan</span>
+  <h2 style="margin-top:10px" id="rName"></h2>
+  <div class="rgrid" style="margin-top:14px">
+   <div class="donut" id="donut"><div><span><b id="rScore"></b><br><small>dari 100</small></span></div></div>
+   <div>
+    <span class="pred" id="rPred"></span>
+    <div class="stats">
+     <div class="stat"><b id="rPct"></b><small>Persentase</small></div>
+     <div class="stat"><b id="rOk" style="color:var(--ok)"></b><small>Benar</small></div>
+     <div class="stat"><b id="rNo" style="color:var(--bad)"></b><small>Salah</small></div>
+     <div class="stat"><b id="rBl"></b><small>Tidak dijawab</small></div>
+     <div class="stat"><b id="rTime"></b><small>Waktu</small></div>
+     <div class="stat"><b id="rMode" style="font-size:1rem"></b><small>Mode</small></div>
+    </div>
+   </div>
+  </div>
+  <p id="saveStat" class="sub no-print" style="margin:12px 0 0"></p>
+  <h3 style="margin-top:22px">Ringkasan per Stimulus</h3>
+  <div id="rTopics"></div>
+  <div class="row no-print" style="margin-top:18px">
+   <button class="btn or" id="btnWrong">🔍 Lihat Soal yang Salah</button>
+   <button class="btn" id="btnReview">📖 Semua Pembahasan</button>
+   <button class="btn" id="btnRetry">🔁 Ulangi</button>
+   <button class="btn gh" id="btnPrint">🖨️ Cetak Hasil</button>
+   <button class="btn gh" id="btnHome">🏠 Kembali ke Beranda</button>
+  </div>
+ </div>
+</section>
+
+<!-- ============ REVIEW ============ -->
+<section class="page" id="p-review">
+ <div class="card">
+  <div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0">📖 Pembahasan</h2><button class="btn gh sm" id="btnRvBack">← Hasil</button></div>
+  <div class="tools"><input type="text" id="srch" placeholder="Cari kata kunci (mis. peluang, rata-rata, atap)">
+   <div class="row" id="chips"></div></div>
+  <div class="rv" id="rv"></div>
+ </div>
+</section>
+
+<div class="ov" id="ov"><div class="card mod"><h3 id="mT"></h3><p id="mB" style="color:var(--mut)"></p><div class="row" id="mA" style="justify-content:flex-end"></div></div></div>
+
+<script>
+/* =====================================================================
+   DATA — Latihan Penalaran Matematika UTBK (15 soal, 5 stimulus)
+   STIM : teks stimulus. DATA : s = indeks stimulus, o = pilihan A–E,
+   k = indeks kunci (0..4), e = pembahasan. Guru dapat mengedit di sini.
+   ===================================================================== */
+const DUR_MIN=30;   // durasi mode Simulasi (menit) — ubah di sini bila perlu
+const STIM=[
+ {ic:"🏠",name:"Atap Pelana",x:"Sebuah bangunan berukuran lebar 12 m dan panjang 10 m diberi atap pelana. Penampang atap berbentuk segitiga sama kaki dengan tinggi puncak 4,5 m dari bidang datar bangunan. Abaikan bagian atap yang menjorok keluar. Setiap 1 m² atap membutuhkan 25 genteng, dan harga genteng Rp2.500,00 per buah."},
+ {ic:"🚲",name:"Gir dan Roda Sepeda",x:"Sebuah sepeda memiliki gir depan (dekat pedal) dengan 48 gigi dan gir belakang dengan 16 gigi. Gir belakang berputar bersama roda belakang yang berdiameter 70 cm. Gunakan π = 22/7."},
+ {ic:"📊",name:"Rata-rata Nilai Gabungan",x:"Kelas A terdiri atas 20 siswa dengan rata-rata nilai ulangan 72. Kelas B terdiri atas 30 siswa dengan rata-rata nilai 82."},
+ {ic:"🎲",name:"Peluang Bola Berwarna",x:"Sebuah kotak berisi 12 bola yang identik bentuknya, yaitu 5 bola merah, 4 bola biru, dan 3 bola hijau."},
+ {ic:"🚆",name:"Dua Kereta Berpapasan",x:"Jarak kota P dan kota Q adalah 380 km. Kereta A berangkat dari P menuju Q pukul 06.00 dengan kecepatan tetap 80 km/jam. Kereta B berangkat dari Q menuju P pukul 07.00 dengan kecepatan tetap 70 km/jam. Keduanya melewati jalur yang sama."}
+];
+const DATA=[
+{s:0,q:"Panjang satu sisi miring atap adalah ... m.",o:["6,5","7","7,5","8","8,5"],k:2,e:"Setengah lebar bangunan = 6 m dan tinggi atap = 4,5 m.\nPanjang sisi miring = √(6² + 4,5²) = √(36 + 20,25) = √56,25 = 7,5 m."},
+{s:0,q:"Luas seluruh permukaan atap (kedua sisi miring) adalah ... m².",o:["120","130","135","140","150"],k:4,e:"Satu sisi atap berbentuk persegi panjang berukuran 7,5 m × 10 m = 75 m².\nDua sisi: 2 × 75 = 150 m²."},
+{s:0,q:"Biaya pembelian seluruh genteng yang diperlukan adalah ...",o:["Rp7.500.000,00","Rp8.250.000,00","Rp9.000.000,00","Rp9.375.000,00","Rp10.500.000,00"],k:3,e:"Banyak genteng = 150 × 25 = 3.750 buah.\nBiaya = 3.750 × Rp2.500 = Rp9.375.000."},
+{s:1,q:"Setiap satu kali putaran pedal, roda belakang berputar sebanyak ... kali.",o:["2","3","4","5","6"],k:1,e:"Gir depan dan gir belakang dihubungkan rantai, sehingga banyak gigi yang lewat sama.\nSatu putaran gir depan = 48 gigi, sedangkan gir belakang punya 16 gigi, jadi putaran roda belakang = 48 ÷ 16 = 3 kali."},
+{s:1,q:"Jarak yang ditempuh sepeda untuk satu kali putaran pedal adalah ... m.",o:["4,4","5,5","6,6","7,7","8,8"],k:2,e:"Keliling roda = π × d = 22/7 × 70 = 220 cm = 2,2 m.\nJarak untuk satu putaran pedal = 3 × 2,2 = 6,6 m."},
+{s:1,q:"Untuk menempuh jarak 1,65 km, pedal harus diputar sebanyak ... kali.",o:["100","150","200","250","300"],k:3,e:"1,65 km = 1.650 m.\nBanyak putaran pedal = 1.650 ÷ 6,6 = 250 kali."},
+{s:2,q:"Rata-rata nilai gabungan kedua kelas adalah ...",o:["75","76","77","78","79"],k:3,e:"Jumlah nilai kelas A = 20 × 72 = 1.440. Jumlah nilai kelas B = 30 × 82 = 2.460.\nRata-rata gabungan = (1.440 + 2.460) ÷ 50 = 3.900 ÷ 50 = 78."},
+{s:2,q:"Sekolah menargetkan rata-rata gabungan kedua kelas sebesar 80. Jika seluruh siswa diberi tambahan nilai yang sama besar, tambahan nilai untuk setiap siswa adalah ...",o:["1","1,5","2","2,5","3"],k:2,e:"Agar rata-rata gabungan 80, jumlah nilai harus 80 × 50 = 4.000. Jumlah nilai sekarang 3.900, sehingga kurang 100.\nTambahan per siswa = 100 ÷ 50 = 2."},
+{s:2,q:"Sepuluh siswa kelas A dengan rata-rata nilai 70 mengikuti remedial. Rata-rata nilai 10 siswa kelas A yang lain adalah ...",o:["74","75","76","77","78"],k:0,e:"Jumlah nilai 10 siswa remedial = 10 × 70 = 700.\nJumlah nilai 10 siswa lainnya = 1.440 − 700 = 740. Rata-ratanya = 740 ÷ 10 = 74."},
+{s:3,q:"Jika satu bola diambil secara acak, peluang terambil bola biru adalah ...",o:["1/4","1/3","5/12","1/2","7/12"],k:1,e:"Peluang = banyak bola biru ÷ semua bola = 4/12 = 1/3."},
+{s:3,q:"Dua bola diambil satu per satu tanpa pengembalian. Peluang kedua bola berwarna biru adalah ...",o:["1/11","1/9","1/6","1/4","1/3"],k:0,e:"Peluang bola pertama biru = 4/12. Setelah satu bola biru terambil (tanpa pengembalian), tersisa 3 bola biru dari 11 bola, sehingga peluang bola kedua biru = 3/11.\nPeluang keduanya biru = 4/12 × 3/11 = 12/132 = 1/11."},
+{s:3,q:"Dua bola diambil sekaligus. Peluang kedua bola berwarna sama adalah ...",o:["1/11","19/66","1/3","1/2","47/66"],k:1,e:"Banyak cara memilih 2 bola dari 12 = C(12,2) = 66.\nKedua bola sama warna: merah C(5,2) = 10, biru C(4,2) = 6, hijau C(3,2) = 3, total 19. Peluang = 19/66."},
+{s:4,q:"Pada pukul 07.00, jarak kedua kereta adalah ... km.",o:["200","220","240","280","300"],k:4,e:"Dari pukul 06.00 sampai 07.00, kereta A menempuh 80 km.\nJarak kedua kereta pada pukul 07.00 = 380 − 80 = 300 km."},
+{s:4,q:"Kedua kereta berpapasan ... jam setelah pukul 07.00.",o:["2","2,5","3","3,5","4"],k:0,e:"Kedua kereta saling mendekat dengan kecepatan gabungan 80 + 70 = 150 km/jam.\nWaktu berpapasan = 300 ÷ 150 = 2 jam setelah pukul 07.00 (yaitu pukul 09.00)."},
+{s:4,q:"Saat berpapasan, jarak tempat tersebut dari kota Q adalah ... km.",o:["100","110","120","130","140"],k:4,e:"Dalam 2 jam, kereta B menempuh 70 × 2 = 140 km dari kota Q.\nPengecekan: kereta A menempuh 80 × 3 = 240 km dari P, dan 240 + 140 = 380 km, sesuai jarak P–Q."}
+];
+DATA.forEach((d,i)=>{d.n=i+1});
+STIM.forEach((s,k)=>{const ids=DATA.filter(d=>d.s===k).map(d=>d.n);s.a=ids[0];s.b=ids[ids.length-1];s.range=`Soal ${s.a}–${s.b}`;s.title=`Stimulus ${k+1}: ${s.name}`});
+const N=DATA.length,L='ABCDE';
+
+/* ======================== UTIL & STATE ======================== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fe=s=>esc(s).replace(/\n/g,'<br>');
+const KEY='mpi_utbk_v1',KS='mpi_utbk_snd';
+let S=null,snd=true,cfg={mode:'latihan'},timerId=null,rvFilter='all';
+try{snd=localStorage.getItem(KS)!=='0'}catch(e){}
+const load=()=>{try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const wipe=()=>{try{localStorage.removeItem(KEY)}catch(e){}};
+const fmt=ms=>{ms=Math.max(0,Math.round(ms/1000));const m=Math.floor(ms/60),s=ms%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')};
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===id));window.scrollTo(0,0);if(S&&id!=='p-home'&&id!=='p-rules'){S.page=id;save()}}
+let ac;function beep(f,d,t){if(!snd)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=.06;o.connect(g);g.connect(ac.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+d);o.stop(ac.currentTime+d)}catch(e){}}
+function modal(t,b,btns){$('#mT').textContent=t;$('#mB').textContent=b;const a=$('#mA');a.innerHTML='';btns.forEach(x=>{const e=document.createElement('button');e.className='btn '+(x.c||'gh');e.textContent=x.t;e.onclick=()=>{$('#ov').classList.remove('on');x.f&&x.f()};a.appendChild(e)});$('#ov').classList.add('on')}
+const modalOpen=()=>$('#ov').classList.contains('on');
+function setSnd(){document.querySelectorAll('#btnSnd,#btnSnd2').forEach(b=>b.textContent=b.id==='btnSnd'?(snd?'🔊 Suara: Hidup':'🔇 Suara: Mati'):(snd?'🔊':'🔇'))}
+const status=i=>S.ans[i]!=null;
+const isOk=i=>S.ans[i]===DATA[i].k;
+const locked=i=>S.mode==='latihan'&&S.ans[i]!=null;
+const stimBox=s=>`<div class="stim"><b>${STIM[s].ic} ${esc(STIM[s].title)} <small style="font-weight:400;color:var(--mut)">(${STIM[s].range})</small></b><p>${esc(STIM[s].x)}</p></div>`;
+
+/* ======================== HOME ======================== */
+function initHome(){
+ $('#simSmall').textContent=DUR_MIN+' menit, tanpa kunci sebelum selesai.';
+ $('#topicList').innerHTML=STIM.map(t=>`<div class="topic"><span class="ic">${t.ic}</span><div><b>${esc(t.title)}</b><small>${t.range}</small></div></div>`).join('');
+ document.querySelectorAll('.mode').forEach(m=>{const pick=()=>{cfg.mode=m.dataset.m;document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('on',x===m))};m.onclick=pick;m.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}}});
+ $('#btnStart').onclick=()=>{const n=$('#nama').value.trim();if(!n){const i=$('#nama');i.classList.remove('shake');void i.offsetWidth;i.classList.add('shake');i.focus();i.placeholder='Isi nama dulu ya';return}
+  cfg.name=n;$('#rulesWho').textContent=`Halo, ${n}! Ini aturan mainnya:`;
+  $('#ruleMode').innerHTML=cfg.mode==='simulasi'?`<i>⏱️</i><span><b>Mode Simulasi:</b> waktu <b>${DUR_MIN} menit</b>. Jawaban benar dan pembahasan baru tampil setelah selesai. Waktu habis = jawaban dikumpulkan otomatis.</span>`:'<i>📘</i><span><b>Mode Latihan:</b> setelah memilih jawaban, pembahasan langsung tampil dan jawaban terkunci. Tanpa batas waktu.</span>';
+  beep(520,.1);show('p-rules')};
+ $('#btnRBack').onclick=()=>show('p-home');
+ $('#btnGo').onclick=()=>startSession(cfg.name,cfg.mode);
+ $('#btnSnd').onclick=$('#btnSnd2').onclick=()=>{snd=!snd;try{localStorage.setItem(KS,snd?'1':'0')}catch(e){}setSnd();beep(660,.1)};
+ setSnd();
+ const sv=load();if(sv&&sv.ans&&sv.v===1){$('#resume').style.display='flex';$('#btnResume').onclick=()=>{S=sv;resume()}}
+}
+function startSession(name,mode){
+ S={v:1,name,mode,ans:{},flag:{},hard:{},cur:0,t0:Date.now(),dur:DUR_MIN*60000,done:false,tEnd:null,page:'p-quiz',sent:false};
+ save();enterQuiz()}
+function resume(){S.done?(renderResult(),show('p-result')):enterQuiz()}
+
+/* ======================== QUIZ ======================== */
+function enterQuiz(){
+ $('#qWho').textContent=S.name;$('#qMode').textContent=S.mode==='simulasi'?'Simulasi':'Latihan';
+ buildNav();renderQuiz();show('p-quiz');startTimer()}
+function startTimer(){clearInterval(timerId);const t=$('#timer');
+ const f=()=>{if(S.done)return;if(S.mode==='simulasi'){const r=S.t0+S.dur-Date.now();t.textContent=fmt(r);t.classList.toggle('warn',r<5*60000);if(r<=0){clearInterval(timerId);modal('Waktu habis',`Waktu ${DUR_MIN} menit telah berakhir. Jawabanmu dikumpulkan otomatis.`,[{t:'Lihat Hasil',c:'or',f:()=>doFinish()}])}}else t.textContent=fmt(Date.now()-S.t0)};
+ f();timerId=setInterval(f,500)}
+function buildNav(){const n=$('#nav');n.innerHTML='';DATA.forEach((_,p)=>{const b=document.createElement('button');b.className='nb';b.textContent=p+1;b.onclick=()=>go(p);b.id='nb'+p;n.appendChild(b)})}
+function refreshNav(){DATA.forEach((_,i)=>{const b=$('#nb'+i);let c='nb';
+ if(status(i)){c+=' a';if(locked(i))c=isOk(i)?'nb c':'nb w'}
+ if(S.flag[i])c+=' f';if(S.hard[i])c+=' h';if(i===S.cur)c+=' cur';b.className=c});
+ const n=DATA.filter((_,i)=>status(i)).length;$('#pfill').style.width=(n/N*100)+'%';$('#qCount').textContent=`Terjawab ${n}/${N}`}
+function renderQuiz(){
+ const i=S.cur,d=DATA[i],a=S.ans[i],lock=locked(i);
+ const body='<div class="opts">'+d.o.map((txt,j)=>{let c='opt';if(a===j)c+=' sel';if(lock){if(j===d.k)c='opt right';else if(a===j)c='opt wrong'}
+  return`<button class="${c}" data-o="${j}" ${lock?'disabled':''}><span class="lt">${L[j]}</span><span>${esc(txt)}</span></button>`}).join('')+'</div>';
+ let ex='';if(lock){const ok=isOk(i);ex=`<div class="expl ${ok?'ok':'no'}"><b>${ok?'✅ Benar!':'❌ Belum tepat.'}</b> Jawaban benar: <b>${L[d.k]}. ${esc(d.o[d.k])}</b><br>${fe(d.e)}</div>`}
+ $('#qcard').innerHTML=`<div class="qhead"><span class="tag">${STIM[d.s].ic} Stimulus ${d.s+1}</span><b>Soal ${d.n} dari ${N}</b></div>
+  ${stimBox(d.s)}<p class="qtext"><b>${d.n}.</b> ${esc(d.q)}</p>${body}${ex}
+  <div class="acts"><button class="btn gh" id="bPrev" ${i===0?'disabled':''}>← Sebelumnya</button>
+  <button class="btn gh sm" id="bFlag">${S.flag[i]?'⚑ Batal Tandai':'⚐ Tandai untuk Ditinjau'}</button>
+  <button class="btn gh sm" id="bHard">${S.hard[i]?'★ Soal Sulit':'☆ Sulit?'}</button>
+  ${S.mode==='simulasi'&&a!=null?'<button class="btn gh sm" id="bClr">Hapus Jawaban</button>':''}
+  <span class="sp"></span><button class="btn" id="bNext" ${i===N-1?'disabled':''}>Berikutnya →</button></div>`;
+ $('#qcard').querySelectorAll('.opt').forEach(b=>b.onclick=()=>choose(+b.dataset.o));
+ $('#bPrev').onclick=()=>go(i-1);$('#bNext').onclick=()=>go(i+1);
+ $('#bFlag').onclick=()=>toggle('flag');$('#bHard').onclick=()=>toggle('hard');
+ const c=$('#bClr');if(c)c.onclick=()=>{delete S.ans[i];save();renderQuiz()};
+ refreshNav()}
+function choose(o){const i=S.cur,d=DATA[i];if(locked(i))return;S.ans[i]=o;save();
+ if(S.mode==='latihan')beep(o===d.k?880:200,.18,o===d.k?'sine':'sawtooth');else beep(500,.08);renderQuiz()}
+function toggle(k){const i=S.cur;S[k][i]?delete S[k][i]:S[k][i]=1;save();beep(600,.06);renderQuiz()}
+function go(p){if(p<0||p>=N||p===S.cur)return;S.cur=p;save();beep(420,.05);renderQuiz();window.scrollTo(0,0)}
+$('#btnFinish').onclick=()=>{const bl=N-DATA.filter((_,i)=>status(i)).length,fl=Object.keys(S.flag).length;
+ modal('Selesaikan pengerjaan?',bl?`Masih ada ${bl} soal yang belum dijawab (bernilai 0)${fl?` dan ${fl} soal bertanda ⚑`:''}. Yakin ingin mengakhiri?`:'Semua soal sudah dijawab. Akhiri dan lihat hasil?',[{t:'Kembali mengerjakan'},{t:'Ya, selesai',c:'or',f:doFinish}])};
+function doFinish(){clearInterval(timerId);S.done=true;S.tEnd=Date.now();save();renderResult();show('p-result');beep(784,.25);sendResult()}
+
+/* ======================== HASIL ======================== */
+function calc(){const r={ok:0,no:0,bl:0,t:STIM.map(()=>({ok:0,no:0,bl:0,n:0}))};
+ DATA.forEach((d,i)=>{const t=r.t[d.s];t.n++;if(!status(i)){r.bl++;t.bl++}else if(isOk(i)){r.ok++;t.ok++}else{r.no++;t.no++}});
+ r.score=Math.round(r.ok/N*100);return r}
+function renderResult(){const r=calc(),score=r.score;
+ const el=Math.min(S.tEnd-S.t0,S.mode==='simulasi'?S.dur:Infinity);
+ let p,col;if(score>=90){p='Sangat Baik';col='#22c55e'}else if(score>=80){p='Baik';col='#4cc9ff'}else if(score>=70){p='Cukup';col='#ff8a1f'}else{p='Perlu Berlatih Lagi';col='#ef4444'}
+ $('#rName').textContent=S.name;$('#rScore').textContent=score;$('#rPct').textContent=score+'%';
+ $('#rOk').textContent=r.ok;$('#rNo').textContent=r.no;$('#rBl').textContent=r.bl;$('#rTime').textContent=fmt(el);$('#rMode').textContent=S.mode==='simulasi'?'Simulasi':'Latihan';
+ const pr=$('#rPred');pr.textContent='🏅 '+p;pr.style.background=col+'33';pr.style.color=col;pr.style.border='1px solid '+col;
+ const a=r.ok/N*100,b=a+r.no/N*100;$('#donut').style.background=`conic-gradient(#22c55e 0 ${a}%,#ef4444 ${a}% ${b}%,#5b6aa5 ${b}% 100%)`;
+ $('#rTopics').innerHTML=r.t.map((t,k)=>`<div class="tb"><div class="lab"><span>${STIM[k].ic} ${esc(STIM[k].title)}</span><b>${t.ok}/${t.n} benar</b></div><div class="bar"><i style="width:${t.ok/t.n*100}%;background:#22c55e"></i><i style="width:${t.no/t.n*100}%;background:#ef4444"></i><i style="width:${t.bl/t.n*100}%;background:#5b6aa5"></i></div></div>`).join('')+'<small style="color:var(--mut)">Hijau = benar • Merah = salah • Abu = tidak dijawab<br>Skor = jumlah benar ÷ 15 × 100.</small>';
+ if(typeof google==='undefined'||!google.script)$('#saveStat').textContent=''}
+$('#btnReview').onclick=()=>{rvFilter='all';$('#srch').value='';renderReview();show('p-review')};
+$('#btnWrong').onclick=()=>{rvFilter='no';$('#srch').value='';renderReview();show('p-review')};
+$('#btnRvBack').onclick=()=>show('p-result');
+$('#btnPrint').onclick=()=>window.print();
+$('#btnRetry').onclick=()=>modal('Ulangi?','Sesi baru dimulai dari soal nomor 1.',[{t:'Batal'},{t:'Ulangi',c:'or',f:()=>startSession(S.name,S.mode)}]);
+$('#btnHome').onclick=()=>{wipe();S=null;clearInterval(timerId);$('#resume').style.display='none';show('p-home')};
+
+/* ======================== KIRIM HASIL KE GOOGLE SHEETS (Apps Script) ======================== */
+function sendResult(){
+ const st=$('#saveStat');if(!st)return;
+ if(S.sent){st.textContent='✅ Hasil sudah tersimpan.';return}
+ if(typeof google==='undefined'||!google.script||!google.script.run){st.textContent='';return} // dibuka di luar Apps Script: lewati
+ const r=calc(),el=Math.min(S.tEnd-S.t0,S.mode==='simulasi'?S.dur:Infinity);
+ const detail=DATA.map((d,i)=>({stimulus:d.s+1,no:d.n,jawab:status(i)?L[S.ans[i]]:'',benar:status(i)&&isOk(i)?1:0}));
+ const payload={name:S.name,mode:S.mode,score:r.score,ok:r.ok,no:r.no,bl:r.bl,sec:[r.score,0,0],durSec:Math.round(el/1000),detail:JSON.stringify(detail)};
+ st.textContent='⏳ Menyimpan hasil...';
+ google.script.run.withSuccessHandler(()=>{S.sent=true;save();st.textContent='✅ Hasil tersimpan ke Google Sheets.'})
+  .withFailureHandler(()=>{st.textContent='⚠️ Hasil belum tersimpan. Periksa koneksi lalu tekan Kirim Ulang.';const b=document.createElement('button');b.className='btn sm';b.textContent='Kirim Ulang';b.style.marginLeft='8px';b.onclick=sendResult;st.appendChild(b)})
+  .saveResult(payload)}
+
+/* ======================== PEMBAHASAN ======================== */
+function renderReview(){
+ const cn={all:N,ok:0,no:0,bl:0,fl:Object.keys(S.flag).length};DATA.forEach((d,i)=>{cn[!status(i)?'bl':isOk(i)?'ok':'no']++});
+ const chips=[['all','Semua'],['ok','Benar'],['no','Salah'],['bl','Kosong'],['fl','Ditandai ⚑']].map(c=>[c[0],c[1]+' ('+cn[c[0]]+')']);
+ $('#chips').innerHTML=chips.map(c=>`<button class="chip ${rvFilter===c[0]?'on':''}" data-f="${c[0]}">${c[1]}</button>`).join('');
+ $('#chips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{rvFilter=b.dataset.f;renderReview()});
+ const q=$('#srch').value.trim().toLowerCase();let h='';
+ STIM.forEach((T,s)=>{let part='';DATA.forEach((d,i)=>{if(d.s!==s)return;const a=S.ans[i],st=!status(i)?'bl':isOk(i)?'ok':'no';
+  if(rvFilter==='fl'?!S.flag[i]:(rvFilter!=='all'&&st!==rvFilter))return;
+  if(q&&!((d.q+' '+d.e+' '+T.x+' '+T.name+' '+d.o.join(' ')).toLowerCase().includes(q)))return;
+  const ops='<div class="opts">'+d.o.map((txt,j)=>{let c='opt';if(j===d.k)c+=' right';else if(a===j)c+=' wrong';return`<div class="${c}"><span class="lt">${L[j]}</span><span>${esc(txt)}</span>${a===j?'<span class="you">Jawabanmu</span>':''}${j===d.k?'<span class="you" style="background:#22c55e55">Kunci</span>':''}</div>`}).join('')+'</div>';
+  part+=`<div class="card" style="margin-bottom:12px;padding:15px"><div class="qhead"><b>Soal ${d.n}</b><span class="badge b-${st}">${st==='ok'?'✅ Benar':st==='no'?'❌ Salah':'➖ Tidak dijawab'}</span></div><p style="margin:0 0 10px">${esc(d.q)}</p>${ops}<div class="expl"><b>Pembahasan:</b><br>${fe(d.e)}</div></div>`});
+  if(part)h+=stimBox(s)+part});
+ $('#rv').innerHTML=h||(rvFilter==='no'&&!q?'<p class="sub">🎉 Tidak ada jawaban yang salah. Hebat!</p>':'<p class="sub">Tidak ada soal yang cocok dengan pencarian/filter.</p>')}
+$('#srch').oninput=()=>renderReview();
+
+/* ======================== KEYBOARD ======================== */
+document.addEventListener('keydown',e=>{
+ if(!S||S.done||modalOpen()||!$('#p-quiz').classList.contains('on')||/INPUT|TEXTAREA/.test(document.activeElement.tagName)||e.ctrlKey||e.metaKey||e.altKey)return;
+ const k=e.key.toLowerCase();
+ if(k==='arrowright'){e.preventDefault();go(S.cur+1)}else if(k==='arrowleft'){e.preventDefault();go(S.cur-1)}
+ else if(k==='f')toggle('flag');
+ else if(k.length===1){const j='abcde'.indexOf(k),n='12345'.indexOf(k);if(j>=0)choose(j);else if(n>=0)choose(n)}});
+
+initHome();
+</script>
+</body>
+</html>
